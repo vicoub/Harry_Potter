@@ -9,8 +9,9 @@ public class Character {
         this.hp = hp;
     }
 
-
-    public void attack(Character character) {
-        character.setHp(character.getHp() - 10);
+    public void attack(Character character, int damage) {
+        character.setHp(character.getHp()-damage);
     }
+
+
 }
