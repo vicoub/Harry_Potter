@@ -16,6 +16,8 @@ public class Enemy extends AbstractEnemy {
         this.hpMax = hpMax;
     }
 
+
+
     public void attackWizard(Wizard wizard) {
         int damage = 10; // Calculer les dégâts en fonction du sort utilisé
         if (wizard.getHouse().getSpecificity() == House.Specificity.RESISTANT_TO_DAMAGE) {
@@ -24,4 +26,4 @@ public class Enemy extends AbstractEnemy {
         this.attack(wizard, damage);
     }
 
-}
+
