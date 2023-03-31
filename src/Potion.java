@@ -7,11 +7,15 @@ public class Potion {
         {this.name = name;
         this.gainHp = gainHp;}
 
-    public int gethpGain(Wizard wizard) {
-        int hpGain = this.gainHp;
-        if (wizard.getHouse().getSpecificity() == House.Specificity.STRONG_POTION) {
-            hpGain *= 1.2; // Augmenter les points de vie gagnés de 20% pour les membres de Hufflepuff
-        }
-        return hpGain;
-    }
-}
+        public int gethpGain(Wizard wizard) {
+            int hpGain = this.gainHp;
+            if (wizard.getHouse().getSpecificity() == House.Specificity.STRONG_POTION) {
+                hpGain *= 1.2; // Augmenter les points de vie gagnés de 20% pour les membres de Hufflepuff
+            }
+            return gainHp;
+        }}
+
+
+
+
+

@@ -135,21 +135,6 @@ public class Game {
         }
     }
 
-    public static int readInt(String prompt, int userChoices) {
-        int input;
-        do {
-            System.out.println(prompt);
-            try {
-                input = Integer.parseInt(scanner.next());
-            } catch (Exception e) {
-                input = -1;
-                System.out.println("Please enter integer!");
-            }
-
-        } while (input < 1 || input > userChoices);
-        return input;
-
-    }
 
     public static void textDelay(String text) {
         for (int i = 0; i < text.length(); i++) {
@@ -157,6 +142,9 @@ public class Game {
             delay(5);
         }
         System.out.println("");
+    }
+
+    private static void delay(int i) {
     }
 
 

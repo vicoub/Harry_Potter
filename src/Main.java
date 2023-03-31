@@ -160,8 +160,11 @@ public class Main {
                     System.out.print("Entrez Accio ! pour appeler le Portoloin : ");
 
 
-                    String sortilege;
-                    if (sortilege.equalsIgnoreCase("Accio !")) { // si le sortilège est utilisé
+
+                    Scanner choice = new Scanner(System.in); //regarde ce que le mec rentre et si ça correspond à accio
+                    String selectedChoice = choice.nextLine(); //ça le fait s'enfuire
+
+                    if (selectedChoice == "Accio") { // si le sortilège est utilisé
                         if (distanceDuPortoloin <= 0) { // si le sorcier est assez proche du Portoloin
                             System.out.println("Vous avez réussi à vous échapper en utilisant le Portoloin !");
                             echappe = true;
