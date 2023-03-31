@@ -18,12 +18,17 @@ public abstract class Character {
     }
 
 
-    public Character(int hp){
-        this.hp = hp;
+    public void upgradeStats(boolean upgradeHp, int rising) {
+        if (upgradeHp) {
+            this.hp += rising;
+        } else {
+            this.dp += rising;
+
+        }
     }
 
-    public void attack(Character character, int damage) {
-        character.setHp(character.getHp()-damage);
+    public int attack(){
+        return this.dp;
     }
 
     public int defend(){

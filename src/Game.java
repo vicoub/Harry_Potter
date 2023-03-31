@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 
 public class Game {
-    static Wizard wizard = new Wizard(1, 10,60,100);
+    public static Wizard wizard = new Wizard(1, 10,60,80);
+    public static Wizard wizard2 = new Wizard(2,20,80,90);
     static Scanner scanner = new Scanner(System.in);
 
     //method to get user input from console
@@ -88,12 +89,12 @@ public class Game {
             }else if(input == 2) {
                 //use potion
                 clearConsole();
-                if (wizard.getPotions().size() > 0 && wizard.getHp() < wizard.getMaxHp()) {
+                if (wizard.getListePotions().size() > 0 && wizard.getHp() < wizard.getMaxHp()) {
                     //use potion
-                    wizard.getPotions().remove(0);
+                    wizard.getListePotions().remove(0);
                     wizard.setHp(wizard.getHp() + 10);
                     if (wizard.getHp() > wizard.getMaxHp()) {
-                        printHeading("Do you want to use a potion? (" + wizard.getPotions() + " left)");
+                        printHeading("Do you want to use a potion? (" + wizard.getListePotions().size() + " left)");
                         System.out.println("(1) Yes \n(2) No");
                         input = readInt("->", 2);
                         if (input == 1) {
@@ -153,8 +154,9 @@ public class Game {
         scanner.nextLine();
     }
 
-    private static void printHeading(String s) { printSeperator(1);
-        System.out.println(title);
+    private static void printHeading(String s) {
+        printSeperator(1);
+        System.out.println(s);
         printSeperator(1);
 
     }

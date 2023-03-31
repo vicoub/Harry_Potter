@@ -1,29 +1,26 @@
 import java.util.List;
 
-public class Enemy extends AbstractEnemy {
-
-    private final int level;
-    private String name;
-    private int hp;
-    private int hpMax;
+public class Enemy extends AbstractEnemy{
+    public static String name;
+    public int level;
     private List<Spell> knownSpell;
 
 
-    public Enemy(int level, String name, int hp, int hpMax) {
-        super(hp);
+    public static Enemy Mangemort = new Enemy(6 ,"mangeMort",140, 140,  50, 70);
+
+    public Enemy(int level,String name, int hpMax,int hp, int dp, int pWin) {
+        super(level, name, hpMax, hp, dp, pWin);
         this.level = level;
         this.name = name;
-        this.hpMax = hpMax;
+        this.setHpMax(hpMax);
+        this.hp = hpMax;
+        this.pWin = pWin;
     }
 
 
 
-    public void attackWizard(Wizard wizard) {
-        int damage = 10; // Calculer les dégâts en fonction du sort utilisé
-        if (wizard.getHouse().getSpecificity() == House.Specificity.RESISTANT_TO_DAMAGE) {
-            damage *= 0.8; // Réduire les dégâts de 20% pour les sorciers de Gryffindor
-        }
-        this.attack(wizard, damage);
-    }
+
+}
+
 
 

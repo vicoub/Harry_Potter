@@ -1,10 +1,15 @@
-
 import lombok.Data;
+
+import java.util.Scanner;
 
 @Data
 public class Main {
+   private static Wizard wizard = Game.wizard;
+
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Main main = new Main();
+        main.year1();
 
     }
     public void year1(){
@@ -32,6 +37,10 @@ public class Main {
             System.out.println("(" + i +") "+ pet.name());
             i += 1;
         }
+
+        System.out.println("Pour commencer voici une potion, elle te permettra de gagner de la vie. Attention tu peux uniquement l'utiliser si tu perds des points de vie.");
+        wizard.getListePotions().add(Potion.strongPotion);
+
 
         System.out.println("veuillez entrez le numéro pour l'animal que vous souhaitez choisir");
 
@@ -162,7 +171,7 @@ public class Main {
 
                 while (!echappe) {
                     System.out.println("Vous êtes à " + distanceDuPortoloin + " pieds du Portoloin.");
-                    System.out.print("Entrez Accio ! pour appeler le Portoloin : ");
+                    System.out.print("Entrez 'Accio' ! pour appeler le Portoloin : ");
 
 
 
@@ -268,8 +277,6 @@ public class Main {
 
         //NIVEAU 7
 
-        import java.util.Scanner;
-
         public class AttaqueVoldemort {
 
             public static void main(String[] args) {
@@ -287,11 +294,11 @@ public class Main {
                 Boss Bellatrix = new Boss(7 ,"Bellatrix",100,30,70,100 );
 
                 // Tant que les personnages de l'utilisateur et des ennemis sont en vie, continuer le combat
-                while (Wizard.alive() && (Voldemort.alive() || Bellatrix.alive())) {
+                while ( (wizard.alive() && Voldemort.alive() || Bellatrix.alive())) {
 
                     // Afficher les statistiques des personnages avant chaque tour
-                    System.out.println("----- Tour " + Game.getTour() + " -----");
-                    System.out.println(Wizard);
+
+                    //System.out.println("----- Tour " + Game.getTour() + " -----");
                     System.out.println(Voldemort);
                     System.out.println(Bellatrix);
 
@@ -302,22 +309,18 @@ public class Main {
                     Game.battle(Voldemort);
                 }
 
-
-                }
-
                 // Afficher le résultat final du combat
                 System.out.println("----- Fin du combat -----");
-                if (!Wizard.alive()) {
+
+                if (wizard.alive()) {
                     System.out.println("Vous êtes mort. Les ennemis ont gagné.");
                 } else if (Voldemort.alive() && !Bellatrix.alive()) {
                     System.out.println("Félicitations ! Vous avez vaincu Voldemort et Bellatrix Lestrange.");
                 } else {
                     System.out.println("Vous avez fui le combat. Les ennemis ont gagné.");
-
-
-                System.out.println("Vous avez vaincu les sorciers les plus maléfique du monde!");
-                System.out.println("Rendez-vous à poudlard pour recevoir votre diplome ainsi que revoir tous vos amis et vos professeurs.");
-
+                    System.out.println("Vous avez vaincu les sorciers les plus maléfique du monde!");
+                    System.out.println("Rendez-vous à poudlard pour recevoir votre diplome ainsi que revoir tous vos amis et vos professeurs.");
+                    }
 
                 }
 
@@ -330,7 +333,7 @@ public class Main {
     }
 
 
-}
+
 
 
 

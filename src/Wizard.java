@@ -1,70 +1,84 @@
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public class Wizard extends Character{
 
-    private final Wand wand;
+    private  Wand wand;
 
-    private final Potion potion;
 
-    private int hp;
 
-    private int hpMax;
-
-    private int dp;
+    private int gold;
 
     private double precision;
 
 
 
-    private final String name;
+    private String name;
 
-    private final String sex;
+    public int hp;
 
-    private final House house;
+    private int dp;
 
-    private final Pet pet;
+    private  String sex;
+
+    private House house;
+
+    private  Pet pet;
 
     private int level;
 
-    private List<Spell> knownSpells;
+    private List<Spell> knownSpells = new ArrayList<>();
 
-    public enum Pet {
-        OWL, CAT, TOAD, DRAGON, SNAKE
-    }
 
-    private List<Potion> potions;
+    private  List<Potion> listePotions = new ArrayList<Potion>();
 
 
 
-    public Wizard(String name, String sex , Pet pet, House house, int hp,
-                  Wand wand,int level,int dp, double precision,int hpMax,Potion potion ) {
-        super(hp);
-        this.name = name;
-        this.sex = sex;
-        this.pet = pet;
-        this.house = house;
-        this.wand  = wand;
+    public Wizard(int level, int dp, int hp, double precision ) {
+        super(level, dp, hp, hp);
+        this.setHpMax(hp);
+        this.hp = hp;
+        this.hpMax = hp;
         this.level = level;
         this.dp = dp;
         this.precision = precision;
-        this.potion = potion;
+        this.gold = 0;
     }
 
-    public void upgradeStats(boolean upgradeHp, int rising) {
-        if (upgradeHp) {
-            this.hp += rising;
-        } else {
-            this.dp += rising;
 
-        }
-    }
 
     public void usePotion(Potion potion) {
         int hpgain = potion.gethpGain(this);
-        this.hp = Math.min(this.hp + hpgain, this.hpMax);
+        hp += hpgain;
+        System.out.println("La potion te gueri de "+ hpgain + ". Tu as maintenant " + hp);
     }
 
     public House getHouse() {
         return this.house;
     }
+
+    public void addSpell(Spell spell){
+        this.knownSpells.add(spell);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+       this.name = name;}
+    public boolean alive(){
+        if(this.hp <= 0){
+            return false;}
+        else{
+            return true;
+        }
+    }
+
 }
