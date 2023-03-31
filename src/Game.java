@@ -135,20 +135,68 @@ public class Game {
         }
     }
 
-    private static void wizardDied() {
+    public static int readInt(String prompt, int userChoices) {
+        int input;
+        do {
+            System.out.println(prompt);
+            try {
+                input = Integer.parseInt(scanner.next());
+            } catch (Exception e) {
+                input = -1;
+                System.out.println("Please enter integer!");
+            }
+
+        } while (input < 1 || input > userChoices);
+        return input;
+
     }
 
-    private static void printSeperator(int i) {
+    public static void textDelay(String text) {
+        for (int i = 0; i < text.length(); i++) {
+            System.out.print(text.charAt(i));
+            delay(5);
+        }
+        System.out.println("");
     }
 
-    private static void promptEnterKey() {
+
+    private static void promptEnterKey() {System.out.println("Appuyez sur Entrée pour continuer...");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
 
-    private static void printHeading(String s) {
+    private static void printHeading(String s) { printSeperator(1);
+        System.out.println(title);
+        printSeperator(1);
+
+    }
+
+    public static void printSeperator(int n) {
+        for (int i = 0; i < n; i++)
+            System.out.println("__________________________________________________________");
+        System.out.println();
+
     }
 
     public static void clearConsole() {
         for (int i=0;i <= 50;i++)
             System.out.println();
+    }
+
+    public static void removeElement(Object[] arr, int removedIdx) {
+        System.arraycopy(arr, removedIdx + 1, arr, removedIdx, arr.length - 1 - removedIdx);
+    }
+
+    public static void wizardDied(){
+        //print the death screen
+        clearConsole();
+        printHeading("vous êtes mort");
+        System.out.println("vous êtes mort ");
+        printSeperator(1);
+        System.out.println("Tu gagnes " + wizard.xp + " xp. Essaye de faire mieux la prochaine fois. ");
+        
+        promptEnterKey();
+        //exit the game
+        boolean isRunning = false;
     }
 }
