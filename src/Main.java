@@ -70,6 +70,8 @@ public class Main {
         System.out.println("tu sais maintenant comment combattre avec ton nouveau sort, appuie sur entrer pour continuer ta route vers les toilettes de l'école.");
         myobj.nextLine();
 
+        System.out.println("Vous rencontrez votre premier boss!");
+        System.out.println("C'est un troll attaque avec le sort que tu as appris précedemment.");
         Boss troll = new Boss(1,"troll",40, 5,50,40);
         Game.battle(troll);
 
@@ -78,6 +80,8 @@ public class Main {
 
         System.out.println("Félicitation vous avez également appris un nouveau sort : ");
         myobj.nextLine();
+
+
 
 
         //NIVEAU 2
@@ -90,6 +94,7 @@ public class Main {
 
 
         */
+
             System.out.println("félicitation tu es maintenant à ta deuxième année en tant que sorcier!");
             System.out.println("tu es maintenant niveau 2");
             myobj.nextLine();

@@ -66,15 +66,15 @@ public class Game {
                 }else if(enemy.getHp() <= 0){
                     //player won
                     clearConsole();
-                    printHeading("You defeated " + enemy.getName() + "!");
+                    printHeading("Vous avez vaincu " + enemy.getName() + "!");
                     //add xp
                     wizard.setXp(wizard.getXp() + enemy.getXp());
-                    System.out.println("You gained " + enemy.getXp() + " xp!");
+                    System.out.println("Tu gagnes " + enemy.getXp() + " xp!");
                     boolean addRest = (Math.random()*5 + 1 <= 2.25);
                     int goldEarned = (int)(Math.random()*enemy.xp);
                     if (addRest){
                         //add rest
-                        System.out.println("You found a rest spot!");
+                        System.out.println("Reposez-vous !");
                         wizard.setHp(wizard.getMaxHp());
                     }
                     if(goldEarned > 0) {
