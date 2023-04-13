@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 @Data
 public class Main {
-   private static Wizard wizard = Game.wizard;
+   private Wizard wizard = Game.wizard;
 
 
     public static void main(String[] args) {
         Main main = new Main();
-        main.year1();
+        Game game = new Game();
+        game.start();
 
     }
     public void year1(){
@@ -95,44 +96,35 @@ public class Main {
 
         //NIVEAU 2
 
-       /* public static void main(String[] args) {
-            Main main = new Main();
-            main.year2();
-        main.year2();
+        System.out.println("félicitation tu es maintenant à ta deuxième année en tant que sorcier!");
+        System.out.println("tu es maintenant niveau 2");
+        myobj.nextLine();
+        System.out.println("À présent dirige toi vers la chambre des secrets attention de nombreux ennemies peuvent être sur ta route... ");
+        myobj.nextLine();
 
 
+        System.out.println("une araigné apparait!");
+        Game.battle(spider);
 
-        */
-
-            System.out.println("félicitation tu es maintenant à ta deuxième année en tant que sorcier!");
-            System.out.println("tu es maintenant niveau 2");
-            myobj.nextLine();
-            System.out.println("À présent dirige toi vers la chambre des secrets attention de nombreux ennemies peuvent être sur ta route... ");
-            myobj.nextLine();
+        System.out.println("continu ta route vers la grotte du basilic pour le vaincre");
+        myobj.nextLine();
 
 
-            System.out.println("une araigné apparait!");
-            Game.battle(spider);
+        Boss basilic = new Boss(2, "basilic", 60, 10, 60, 60);
 
-            System.out.println("continu ta route vers la grotte du basilic pour le vaincre");
-            myobj.nextLine();
+        System.out.println(" Le basilic est là! suit les instructions pour pouvoir le battre.");
 
+       /* if (Wizard.getHouse().equals("Gryffindor")) { // If the player is from Gryffindor
+            GryffindorSword sword = new GryffindorSword(); // Create a Gryffindor sword
+            Wizard.use(sword, basilic); // The player uses the sword to slay the basilisk
+        } else { // If the player is not from Gryffindor
+            BasilicFang fang = basilic.extractFang(); // The player extracts a fang from the basilisk
+            TomRiddleDiary diary = new TomRiddleDiary(); // Create Tom Riddle's diary
+            Wizard.use(fang, diary); // The player uses the fang to destroy the diary
+        }*/
+        Game.battle(basilic);
 
-            Boss basilic = new Boss(2, "basilic", 60, 10, 60, 60);
-
-            System.out.println(" Le basilic est là! suit les instructions pour pouvoir le battre.");
-
-           /* if (Wizard.getHouse().equals("Gryffindor")) { // If the player is from Gryffindor
-                GryffindorSword sword = new GryffindorSword(); // Create a Gryffindor sword
-                Wizard.use(sword, basilic); // The player uses the sword to slay the basilisk
-            } else { // If the player is not from Gryffindor
-                BasilicFang fang = basilic.extractFang(); // The player extracts a fang from the basilisk
-                TomRiddleDiary diary = new TomRiddleDiary(); // Create Tom Riddle's diary
-                Wizard.use(fang, diary); // The player uses the fang to destroy the diary
-            }*/
-            Game.battle(basilic);
-
-            System.out.println("Bravo ce combat n'était pas si simple...le basilic est mort! tu peux rentrer à poudlard maintenant.");
+        System.out.println("Bravo ce combat n'était pas si simple...le basilic est mort! tu peux rentrer à poudlard maintenant.");
 
         //NIVEAU 3
 
